@@ -17,7 +17,7 @@
 1. Phase 1: Get Data
 ..* Using jQuery to parse HTML, this would return a LARGE string
 ```
-$('body > content').text()
+$('body > #content').text()
 ```
 2. Phase 2: Find matches and sort into an array
 3. Phase 3: Get Frequencies of matches and store in an object to access using words as keys
