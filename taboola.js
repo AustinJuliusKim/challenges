@@ -10,9 +10,12 @@
 // (ex. output 1) A 2 3 is a formal 4 3 designed to communicate instructions to a 2, particularly a 4. 2 3 can be used to create 4 programs to control the behavior of a 2 or 4, or to express algorithms.
 // (ex. output 2) A 224 172 is a formal constructed 172 designed to communicate instructions to a machine, particularly a 45. 224 206 can be 29 to create 34 to control the behavior of a machine or to ex18 algorithms.
 
-const exampleInput = "A programming language is a formal computer language designed to communicate instructions to a machine, particularly a computer. Programming language can be used to create computer programs to control the behavior of a machine or computer, or to express algorithms."
+const exampleInput2 = "A programming language is a formal computer language or constructed language designed to communicate instructions to a machine, particularly a computer. Programming languages can be used to create programs to control the behavior of a machine or to express algorithms. The earliest known programmable machine preceded the invention of the digital computer and is the automatic flute player described in the 9th century by the brothers Musa in Baghdad, at the time a major centre of knowledge.";
+
+const exampleInput = "A programming language is a formal computer language designed to communicate instructions to a machine, particularly a computer. Programming language can be used to create computer programs to control the behavior of a machine or computer, or to express algorithms.";
+
 var output,
-    countObject = {words: []};
+    frequencies = {};
 
 function histogram(str){
   // variables
@@ -50,19 +53,15 @@ function histogram(str){
     }
     output = repeatStore;
   }
-
-  // run histogram
   findMatching();
   console.log(output);
   return false;
 }
-
-// TODO Iterate through output and compare words
+histogram(exampleInput2);
 
 function getFrequency(arr, cutOff){
-  var frequencies = {},
-    words = arr,
-    word, frequency, i;
+    var words = arr,
+    word, i, count;
 
   for (i = 0; i < words.length; i++){
     word = words[i];
@@ -71,11 +70,13 @@ function getFrequency(arr, cutOff){
   }
 
   words = Object.keys(frequencies);
+  // Sorts by highest frequency
   return words.sort(function(a,b) {
     return frequencies[b] - frequencies[a];
   }).slice(0,cutOff);
 }
 
+getFrequency(output, 10);
 
 
 // TOOLS
