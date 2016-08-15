@@ -11,13 +11,14 @@
 // (ex. output 2) A 224 172 is a formal constructed 172 designed to communicate instructions to a machine, particularly a 45. 224 206 can be 29 to create 34 to control the behavior of a machine or to ex18 algorithms.
 
 const exampleInput = "A programming language is a formal computer language designed to communicate instructions to a machine, particularly a computer. Programming language can be used to create computer programs to control the behavior of a machine or computer, or to express algorithms."
-var output, countObject = {words: []};
+var output,
+    countObject = {words: []};
 
 function histogram(str){
   // variables
   var target = str,
-  repeatStore = [],
-  a, b, n, m;
+      repeatStore = [],
+      a, b, n, m;
   // helper functions
   target = parseStringToArray(target);
   function lowerCase(str){
@@ -31,7 +32,7 @@ function histogram(str){
     return str
   }
   function findMatching(){
-    // Loops through array to find and sort matching words
+    // Loops through array to find matching words
     outerloop: for (n = 0; n < target.length; n++){
       // controls a while innerloop searches for match to a
       a = target[n];
@@ -47,7 +48,7 @@ function histogram(str){
         }
       continue;
     }
-    output = repeatStore.sort();
+    output = repeatStore;
   }
 
   // run histogram
@@ -57,50 +58,24 @@ function histogram(str){
 }
 
 // TODO Iterate through output and compare words
-  // If match create object, increment count && shift
-  // Else don't match, shift && increment count last time
-    // Create new object, increment count && shift
-var countObject = {words: []};
-function countMatches(arr){
-  // variables
-  var target, n, a, b, indice, store;
-  // helper functions
-  function pushToWords(str){
-    return countObject.words.push({word: str, count: 1});
-  }
-  function incrementCount(index){
-    return countObject.words[index].count++;
+
+function getFrequency(arr, cutOff){
+  var frequencies = {},
+    words = arr,
+    word, frequency, i;
+
+  for (i = 0; i < words.length; i++){
+    word = words[i];
+    frequencies[word] = frequencies[word] || 0;
+    frequencies[word]++;
   }
 
-  var target, n, a, b, indice = 1, store;
-  target = output;
-  // Loops through array to count words and shift out
-  for (n = 0; n < target.length; n++){
-    a = target[n];
-    b = target[n+1];
-    if (a == b){
-      if(indice === 1){
-        // If indice is undefined create new word object
-        countObject.words.push({word: a, count: 1});
-        indice = target.indexOf(a);
-        store = target.shift();
-        console.log(countObject);
-      } else {
-        // incrememnt count
-        countObject.words[indice].count++;
-        store = target.shift();
-        console.log(countObject);
-      }
-    } else {
-      store = target.shift();
-      countObject.words[indice].count++;
-      countObject.words.push({word: b, count: 1});
-      console.log(countObject);
-    }
-  }
-
-  return false;
+  words = Object.keys(frequencies);
+  return words.sort(function(a,b) {
+    return frequencies[b] - frequencies[a];
+  }).slice(0,cutOff);
 }
+
 
 
 // TOOLS
