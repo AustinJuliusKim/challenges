@@ -14,14 +14,13 @@
 * (ex. output 1) A 2 3 is a formal 4 3 designed to communicate instructions to a 2, particularly a 4. 2 3 can be used to create 4 programs to control the behavior of a 2 or 4, or to express algorithms.
 
 ####How I break this into smaller parts:
-1. Phase 1: Get Data
-..* Using jQuery to parse HTML, this would return a LARGE string
 ```
 $('body > #content').text()
 ```
+1. Phase 1: Get Data
+..* Using jQuery to parse HTML, this would return a LARGE string
 2. Phase 2: Find matches and sort into an array
 3. Phase 3: Get Frequencies of matches and store in an object to access using words as keys
 4. Take most common matches and inject back into document
-..* Haven't quite wrapped my head around this one...
-
+* Haven't quite wrapped my head around this one...
 * Somewhere between these phases would have to filter out common words like "the", "a", "is", etc.
