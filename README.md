@@ -21,6 +21,6 @@ $('body > #content').text()
 ..* Using jQuery to parse HTML, this would return a LARGE string
 2. Phase 2: Find matches and sort into an array
 3. Phase 3: Get Frequencies of matches and store in an object to access using words as keys
-4. Take most common matches and inject back into document
-* Haven't quite wrapped my head around this one...
-* Somewhere between these phases would have to filter out common words like "the", "a", "is", etc.
+4. Phase 4: Take most common matches and inject back into document
+  * Haven't quite wrapped my head around this one...
+  * Somewhere between these phases would have to filter out common words like "the", "a", "is", etc.
