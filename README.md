@@ -1,4 +1,6 @@
-# FE SE Home Test
+# Challenges Repository
+
+## Taboola.js
 ### Create an algorithm that replaces the top 25 most COMMON words based on their FREQUENCY with their count inline. Your code should be pasteable and runnable in the browser console.
 
 [https://en.wikipedia.org/wiki/Programming_language](https://en.wikipedia.org/wiki/Programming_language)
