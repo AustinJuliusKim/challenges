@@ -14,8 +14,9 @@
 * (ex. output 1) A 2 3 is a formal 4 3 designed to communicate instructions to a 2, particularly a 4. 2 3 can be used to create 4 programs to control the behavior of a 2 or 4, or to express algorithms.
 
 ####How I break this into smaller parts:
+Edit: I realize I have to dig down a little deeper...
 ```
-$('body > #content').text()
+$('body > #content > #bodyContent > #mw-content-text').find('p').text()
 ```
 1. Phase 1: Get Data
 ..* Using jQuery to parse HTML, this would return a LARGE string
